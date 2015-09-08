@@ -1,21 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package rpian.vartalap.client;
 
-/**
- *
- * @author rajeshpatkar
- */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+
 public class RPIANVartalapClient {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+    public static void main(String[] args) throws Exception {
+        System.out.println("Client Signing on");
+          try {
+            Socket soc = new Socket("192.168.1.213", 8096);
+            Reader r = new Reader(soc);
+            r.start();
+            System.out.println("Client says connection establised");
+
+            OutputStream out = soc.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(out);
+            BufferedWriter br = new BufferedWriter(osw);
+            PrintWriter nos = new PrintWriter(br, true);
+            BufferedReader kin = new BufferedReader(
+                    new InputStreamReader(
+                            System.in
+                    )
+            );
+            String n = kin.readLine();
+            while (!n.equals("End")) {
+                nos.println(n);
+                n = kin.readLine();
+            }
+            nos.println("End");
+
+            System.out.println("Client Signing off");
+
+        } catch (Exception e) {
+
+        }
+    }
+
 }

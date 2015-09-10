@@ -1,40 +1,41 @@
-
 package rpian.vartalap.server;
 
 import java.util.ArrayList;
 
-
 public class MessageQueue<T> {
 
-    ArrayList<T> al = new ArrayList<>();
+    ArrayList<T> messageQueue = new ArrayList<>();
 
     synchronized public void enqueue(T i) {
-        al.add(i);
+        messageQueue.add(i);
         notify();
     }
 
-   synchronized public T dequeue() {
-        if ( al.isEmpty()) {
+    synchronized public T dequeue() {
+        if (messageQueue.isEmpty()) {
             try {
                 wait();
-            } catch (Exception ex) {}
+            } catch (Exception ex) {
+                // TODO 
+            }
         }
-        return al.remove(0);
-      }
-   
+        return messageQueue.remove(0);
+    }
+
     synchronized public void print() {
-        for (T i : al) {
-            System.out.println("-->" + i);
+        for (T value: messageQueue) {
+            System.out.println("Value -->" + value);
         }
 
     }
 
     @Override
     synchronized public String toString() {
-        String str = null;
-        for (T s : al) {
-            str += "::" + s;
+        String strMessage = null;
+        for( T value: messageQueue )
+        {
+            strMessage += ":: "+ value;
         }
-        return str;
+        return strMessage;
     }
 }

@@ -9,10 +9,11 @@ public class MessageDispatcher extends Thread {
         while (true) {
             try {
                 String str = RPIANVartalapServer.q.dequeue();
-                for (PrintWriter o : RPIANVartalapServer.noslist) {
+                for (PrintWriter o : RPIANVartalapServer.nosArrayList) {
                     o.println(str);
                 }
             } catch (Exception e) {
+                System.out.println("MessageDispatcher Caught Exception: " + e);
             }
         }
     }

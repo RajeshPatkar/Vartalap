@@ -21,7 +21,7 @@ public class LoginFrame {
     private final JLabel jlUserNameLabel;
     private final JPanel jpUserNamePanel;
 
-    private JTextField tfPassword;
+    private JPasswordField tfPassword;
     private final JLabel jlPasswordLabel;
     private final JPanel jpPasswordPanel;
 
@@ -44,7 +44,7 @@ public class LoginFrame {
         jpUserNamePanel = new JPanel();
 
         // password UI elements 
-        tfPassword = new JTextField();
+        tfPassword = new JPasswordField();
         jlPasswordLabel = new JLabel();
         jpPasswordPanel = new JPanel();
 
@@ -173,7 +173,7 @@ public class LoginFrame {
         this.tfUserName = tfUserName;
     }
 
-    public JTextField getTfPassword() {
+    public JPasswordField getTfPassword() {
         return tfPassword;
     }
 

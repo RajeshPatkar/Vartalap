@@ -24,7 +24,7 @@ class LoginButtonActionListener implements ActionListener {
 
     public void performSendMessageAction() {
         String strUserName = this.loginFrame.getTfUserName().getText();
-        String strPassword = this.loginFrame.getTfPassword().getText();
+        String strPassword = new String(this.loginFrame.getTfPassword().getPassword());
 
         // System.out.println("LoginButtonActionListener: Taken username:" + strUserName);
         // System.out.println("LoginButtonActionListener: Taken password:" + strPassword);

@@ -2,7 +2,7 @@ Vartalap
 ========
 
 Instant Messenger
-This application is build to express a design approach meant for: highly concurrent, multi threaded, network enabled, client-server message-collaboration chat application. Currently incorporated with Swing. 
+This application is build to express a design approach meant for: highly concurrent, network enabled, client-server message-collaboration chat application. Currently incorporated with Swing. 
 Future versions can be built using various frontend technologies to demonstrate the purpose of messaging framework.
 
 Server Application: 

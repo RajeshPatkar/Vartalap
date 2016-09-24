@@ -9,7 +9,7 @@ public class RPIANVartalapServer {
 
     public static MessageQueue<String> q = new MessageQueue<>();
 
-    public static ArrayList<PrintWriter> nosArrayList = new ArrayList<>();
+    public static HashMap<String,PrintWriter> nosArrayList = new HashMap<>();//HashMap so that just by giving username i can get the nos
     public static ArrayList<String> userArrayList = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {

@@ -26,6 +26,7 @@ public class ChatFrame {
 
     private JTextField tfMessage;
     private JButton buttonSend;
+    private JButton signout;
     private JPanel jpMessageBar;
 
     private JTextArea taMessageArea;
@@ -45,7 +46,9 @@ public class ChatFrame {
 
         // send button for user to submit the message string 
         buttonSend = new JButton("Send Message");
+         signout = new JButton("Signout");
         jpMessageBar.add(buttonSend);
+        jpMessageBar.add(signout);
 
         // text area to hold the message list 
         taMessageArea = new JTextArea();
@@ -77,6 +80,10 @@ public class ChatFrame {
         SendMessageButtonActionListener sendButtonActionListenerObject = new SendMessageButtonActionListener(tfMessage, taMessageArea);
         buttonSend.addActionListener(sendButtonActionListenerObject);
         tfMessage.addActionListener(sendButtonActionListenerObject);
+        signout.addActionListener((e) ->
+        {
+            RPIANVartalapClient.nos.println("End");
+        });
 
         frameChatWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

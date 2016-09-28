@@ -52,7 +52,8 @@ public class Conversation extends Thread {
                             )
                     ), true
             );
-            RPIANVartalapServer.nosArrayList.add(nos);
+            RPIANVartalapServer.nosArrayList.put(username, nos);
+            
             boolean flagAuth = false;
             int retryCounter = 0;
             String strInput = null;
